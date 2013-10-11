@@ -107,12 +107,14 @@ typedef enum OMX_AUDIO_CODINGTYPE {
     OMX_AUDIO_CodingRA,          /**< Any variant of RA encoded data */
     OMX_AUDIO_CodingMIDI,        /**< Any variant of MIDI encoded data */
     OMX_AUDIO_CodingFLAC,        /**< Any variant of FLAC encoded data */
-    OMX_AUDIO_CodingKhronosExtensions = 0x6F000000, /**< Reserved region for introducing Khronos Standard Extensions */ 
-    OMX_AUDIO_CodingVendorStartUnused = 0x7F000000, /**< Reserved region for introducing Vendor Extensions */
 #ifdef USES_NAM
+    OMX_AUDIO_CodingMP2,         /**< Any variant of MP2 encoded data */
+    OMX_AUDIO_CodingAC3,         /**< Any variant of AC3 encoded data */
     OMX_AUDIO_CodingAPE,         /**< Any variant of APE encoded data */
     OMX_AUDIO_CodingDTS,         /**< Any variant of DTS encoded data */
 #endif
+    OMX_AUDIO_CodingKhronosExtensions = 0x6F000000, /**< Reserved region for introducing Khronos Standard Extensions */ 
+    OMX_AUDIO_CodingVendorStartUnused = 0x7F000000, /**< Reserved region for introducing Vendor Extensions */
     OMX_AUDIO_CodingMax = 0x7FFFFFFF
 } OMX_AUDIO_CODINGTYPE;
 
@@ -357,7 +359,38 @@ typedef struct OMX_AUDIO_PARAM_FLACTYPE {
                                    to 8 (highest compression */
 } OMX_AUDIO_PARAM_FLACTYPE;
 
+
 #ifdef USES_NAM
+/** MP2 params */
+typedef struct OMX_AUDIO_PARAM_MP2TYPE {
+    OMX_U32 nSize;                 /**< size of the structure in bytes */
+    OMX_VERSIONTYPE nVersion;      /**< OMX specification version information */
+    OMX_U32 nPortIndex;            /**< port that this structure applies to */
+    OMX_U32 nChannels;             /**< Number of channels */
+    OMX_U32 nBitRate;              /**< Bit rate of the input data.  Use 0 for variable
+                                        rate or unknown bit rates */
+    OMX_U32 nSampleRate;           /**< Sampling rate of the source data.  Use 0 for
+                                        variable or unknown sampling rate. */
+    OMX_AUDIO_CHANNELMODETYPE eChannelMode;   /**< Channel mode enumeration */
+    OMX_AUDIO_MP3STREAMFORMATTYPE eFormat;  /**< MP3 stream format */
+} OMX_AUDIO_PARAM_MP2TYPE;
+
+
+/** AC3 params */
+typedef struct OMX_AUDIO_PARAM_AC3TYPE{
+    OMX_U32 nSize;                 /**< size of the structure in bytes */
+    OMX_VERSIONTYPE nVersion;      /**< OMX specification version information */
+    OMX_U32 nPortIndex;            /**< port that this structure applies to */
+    OMX_U32 nChannels;             /**< Number of channels */
+    OMX_U32 nBitRate;              /**< Bit rate of the input data.  Use 0 for variable
+                                        rate or unknown bit rates */
+    OMX_U32 nSamplingRate;         /**< Sampling rate of the source data.  Use 0 for
+                                        variable or unknown sampling rate. */
+    OMX_AUDIO_CHANNELMODETYPE eChannelMode;   /**< Channel mode enumeration */
+} OMX_AUDIO_PARAM_AC3TYPE;
+
+
+/** APE params */
 typedef struct OMX_AUDIO_PARAM_APETYPE {
     OMX_U32 nSize;                /**< size of the structure in bytes */
     OMX_VERSIONTYPE nVersion;     /**< OMX specification version information */
@@ -372,6 +405,7 @@ typedef struct OMX_AUDIO_PARAM_APETYPE {
 } OMX_AUDIO_PARAM_APETYPE;
 
 
+/** DTS params */
 typedef struct OMX_AUDIO_PARAM_DTSTYPE {
     OMX_U32 nSize;                 /**< size of the structure in bytes */
     OMX_VERSIONTYPE nVersion;      /**< OMX specification version information */

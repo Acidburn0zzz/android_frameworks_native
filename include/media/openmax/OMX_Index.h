@@ -137,6 +137,8 @@ typedef enum OMX_INDEXTYPE {
     OMX_IndexParamAudioVorbis,              /**< reference: OMX_AUDIO_PARAM_VORBISTYPE */
     OMX_IndexParamAudioFlac,                /**< reference: OMX_AUDIO_PARAM_FLACTYPE */
 #ifdef USES_NAM
+    OMX_IndexParamAudioMp2,                 /**< reference: OMX_AUDIO_PARAM_MP2TYPE */
+    OMX_IndexParamAudioAc3,                 /**< reference: OMX_AUDIO_PARAM_AC3TYPE */
     OMX_IndexParamAudioApe,                 /**< reference: OMX_AUDIO_PARAM_APETYPE */
     OMX_IndexParamAudioDts,                 /**< reference: OMX_AUDIO_PARAM_DTSTYPE */
 #endif
