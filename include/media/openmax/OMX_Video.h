@@ -1074,6 +1074,7 @@ typedef struct OMX_VIDEO_CONFIG_NALSIZE {
     OMX_U32 nNaluBytes;
 } OMX_VIDEO_CONFIG_NALSIZE;
 
+#ifdef USES_NAM
 /** 
  * FFMPEG Video Params 
  */
@@ -1086,6 +1087,7 @@ typedef struct OMX_VIDEO_PARAM_FFMPEGTYPE {
     OMX_U32 nWidth;
     OMX_U32 nHeight;
 } OMX_VIDEO_PARAM_FFMPEGTYPE;
+#endif //USES_NAM
 
 /** @} */
 
